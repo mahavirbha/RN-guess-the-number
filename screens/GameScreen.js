@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 import Title from "../components/ui/Title";
 import NumberContainer from "../components/game/NumberContainer";
 import PrimaryButton from "../components/ui/PrimaryButton";
+import { Ionicons } from "@expo/vector-icons";
 
 function generateRandomBetween(min, max, exclude) {
   const rndNum = Math.floor(Math.random() * (max - min)) + min;
@@ -18,11 +19,7 @@ let minBoundary = 1;
 let maxBoundary = 100;
 
 const GameScreen = ({ userNumber, gameOverHandler }) => {
-  const initialGuess = generateRandomBetween(
-    1,
-    100,
-    userNumber
-  );
+  const initialGuess = generateRandomBetween(1, 100, userNumber);
   const [currentGuess, setCurrentGuess] = useState(initialGuess);
 
   useEffect(() => {
@@ -70,12 +67,12 @@ const GameScreen = ({ userNumber, gameOverHandler }) => {
         <View style={styles.buttonsContainer}>
           <View style={{ flex: 1 }}>
             <PrimaryButton onPress={nextGuessHandler.bind(this, "lower")}>
-              -
+              <Ionicons name="md-remove" size={24} />
             </PrimaryButton>
           </View>
           <View style={{ flex: 1 }}>
             <PrimaryButton onPress={nextGuessHandler.bind(this, "greater")}>
-              +
+              <Ionicons name="md-add" size={24} />
             </PrimaryButton>
           </View>
         </View>
