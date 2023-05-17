@@ -2,5 +2,12 @@
 
 React Native Game - Guess the number
 
-![Alt text](assets/output/Screenshot_1684207176.png)
-![Alt text](assets/output/Screenshot_1684207193.png)
+Output Screens:
+
+![Alt text](assets/output/Screenshot_1684344643.png)
+![Alt text](assets/output/Screenshot_1684344653.png)
+![Alt text](assets/output/Screenshot_1684344659.png)
+![Alt text](assets/output/Screenshot_1684344682.png)
+![Alt text](assets/output/Screenshot_1684344706.png)
+![Alt text](assets/output/Screenshot_1684344721.png)
+![Alt text](assets/output/Screenshot_1684344724.png)
