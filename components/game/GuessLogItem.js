@@ -2,9 +2,11 @@ import { View, Text, StyleSheet } from "react-native";
 import React from "react";
 import Colors from "../../constants/colors";
 
-const GuessLogItem = ({ roundNumber, guess }) => {
+const GuessLogItem = ({ roundNumber, guess, marginVerticalHorizontal }) => {
   return (
-    <View style={styles.listItem}>
+    <View
+      style={[styles.listItem, {  marginVertical: marginVerticalHorizontal }]}
+    >
       <Text style={styles.itemText}>#{roundNumber}</Text>
       <Text style={styles.itemText}>Opponent's Guess: {guess}</Text>
     </View>
@@ -19,7 +21,7 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     borderRadius: 40,
     padding: 12,
-    marginVertical: 8,
+    // marginVertical: marginVertical,
     backgroundColor: Colors.accent500,
     flexDirection: "row",
     justifyContent: "space-between",

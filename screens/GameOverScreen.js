@@ -1,16 +1,41 @@
 import React from "react";
-import { Image, SafeAreaView, StyleSheet, View, Text } from "react-native";
+import {
+  Image,
+  SafeAreaView,
+  StyleSheet,
+  Text,
+  View,
+  useWindowDimensions,
+} from "react-native";
+import PrimaryButton from "../components/ui/PrimaryButton";
 import Title from "../components/ui/Title";
 import Colors from "../constants/colors";
-import PrimaryButton from "../components/ui/PrimaryButton";
 
 const GameOverScreen = ({ roundesNumber, userNumber, onStartNewGame }) => {
+  const { width, height } = useWindowDimensions();
+
+  let imageSize = 300;
+
+  if (width < 380) {
+    imageSize = 150;
+  }
+
+  if (height < 400) {
+    imageSize = 80;
+  }
+
+  const imageStyles = {
+    width: imageSize,
+    height: imageSize,
+    borderRadius: imageSize / 2,
+  };
+
   return (
     <SafeAreaView style={styles.rootContainer}>
       <View style={{ marginTop: 48 }}>
         <Title>GAME OVER!</Title>
       </View>
-      <View style={styles.imageContainer}>
+      <View style={[styles.imageContainer, imageStyles]}>
         <Image style={styles.image} source={require("../assets/success.png")} />
       </View>
       <Text style={styles.summaryText}>
@@ -35,9 +60,6 @@ const styles = StyleSheet.create({
     alignItems: "center",
   },
   imageContainer: {
-    width: 300,
-    height: 300,
-    borderRadius: 200,
     borderWidth: 3,
     borderColor: Colors.primary800,
     overflow: "hidden",
