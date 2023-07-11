@@ -1,12 +1,13 @@
-import { LinearGradient } from "expo-linear-gradient";
-import React, { useState } from "react";
-import { ImageBackground, SafeAreaView, StyleSheet, View } from "react-native";
-import StartGameScreen from "./screens/StartGameScreen";
-import GameScreen from "./screens/GameScreen";
-import Colors from "./constants/colors";
-import GameOverScreen from "./screens/GameOverScreen";
-import { useFonts } from "expo-font";
-import AppLoading from "expo-app-loading";
+import { LinearGradient } from 'expo-linear-gradient';
+import React, { useState } from 'react';
+import { ImageBackground, SafeAreaView, StyleSheet, View } from 'react-native';
+import StartGameScreen from './screens/StartGameScreen';
+import GameScreen from './screens/GameScreen';
+import Colors from './constants/colors';
+import GameOverScreen from './screens/GameOverScreen';
+import { useFonts } from 'expo-font';
+import AppLoading from 'expo-app-loading';
+import { StatusBar } from 'expo-status-bar';
 
 const App = () => {
   const [userNumber, setUserNumber] = useState();
@@ -14,8 +15,8 @@ const App = () => {
   const [guessRounds, setGuessRounds] = useState(0);
 
   const [fontsLoaded] = useFonts({
-    "open-sans": require("./assets/fonts/OpenSans-Regular.ttf"),
-    "open-sans-bold": require("./assets/fonts/OpenSans-Bold.ttf"),
+    'open-sans': require('./assets/fonts/OpenSans-Regular.ttf'),
+    'open-sans-bold': require('./assets/fonts/OpenSans-Bold.ttf'),
   });
 
   if (!fontsLoaded) {
@@ -56,19 +57,22 @@ const App = () => {
   }
 
   return (
-    <LinearGradient
-      colors={[Colors.primary700, Colors.accent500]}
-      style={styles.rootScreen}
-    >
-      <ImageBackground
-        source={require("./assets/dice.png")}
-        resizeMode="cover"
+    <>
+      <StatusBar style='inverted' />
+      <LinearGradient
+        colors={[Colors.primary700, Colors.accent500]}
         style={styles.rootScreen}
-        imageStyle={styles.backgroundImage}
       >
-        <SafeAreaView style={styles.rootScreen}>{screen}</SafeAreaView>
-      </ImageBackground>
-    </LinearGradient>
+        <ImageBackground
+          source={require('./assets/dice.png')}
+          resizeMode='cover'
+          style={styles.rootScreen}
+          imageStyle={styles.backgroundImage}
+        >
+          <SafeAreaView style={styles.rootScreen}>{screen}</SafeAreaView>
+        </ImageBackground>
+      </LinearGradient>
+    </>
   );
 };
 
